@@ -406,6 +406,12 @@ if($_POST['cari']){
                   <p>Level 1</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="../admin/logout.php" class="nav-link">
+                  <i class="nav-icon bi bi-circle-fill"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
             </ul>
             <!--end::Sidebar Menu-->
           </nav>
@@ -422,7 +428,7 @@ if($_POST['cari']){
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
-              <div class="col-sm-6"><h3 class="mb-0">Dashboard Mahasiswa</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0"></h3></div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-sm-6">

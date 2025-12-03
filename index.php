@@ -2,8 +2,7 @@
 error_reporting(0);
 session_start();
 $APP_NAME="SIAKAD";
-?>
-<?php
+
 if($_POST['btnLogin']){
     $tuser=$_POST['tuser'];
     $tpass=$_POST['tpass'];
@@ -14,23 +13,28 @@ if($_POST['btnLogin']){
     $data=$hasil->fetch_array();
     $level=$data['level'];
     if($jml>0){
-        $_SESSION['isLogin']=true;
-        $_SESSION['level']=$level;
-        $_SESSION['user']=$tuser;
-        echo"<div class='alert alert-success alert-dismissible'>Berhasil!</div>";
-        if($level=="admin"){
-            header("location:admin/");
-        }elseif($level=="dosen"){
-            header("location:dosen/");
-        }elseif($level=="mhs"){
-            header("location:mahasiswa/");
-        }
-    }else{
+      $_SESSION['isLogin']=true;
+      $_SESSION['level']=$level;
+      $_SESSION['user']=$tuser;
+      echo"<div class='alert alert-success alert-dismissible'>Berhasil!</div>";
+      // Redirect user based on role
+      if($level=="admin"){
+        header("location:admin/");
+      }elseif($level=="dosen"){
+        header("location:dosen/");
+      }elseif($level=="mhs"){
+        header("location:mahasiswa/");
+      }elseif($level=="pegawai"){
+        header("location:pegawai/");
+      }
+      exit();
+    } else {
         $_SESSION['isLogin']=false;
         echo"<div class='alert alert-danger alert-dismissible'>Username atau password salah!</div>";
     }
-}
+  }
 ?>
+
 <!doctype html>
 <html lang="en">
   <!--begin::Head-->
